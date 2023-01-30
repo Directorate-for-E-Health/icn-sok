@@ -65,11 +65,11 @@ export const Main = class Main extends React.Component {
 
         <article>
           <div className="form group">
-            <h1>Intervjensjon</h1>
+            <h1>intervensjon</h1>
 
             <IntervjensjonAutosuggest
               suggestCallback={this.suggestCallback}
-              placeholder="Søk intervjensjon"
+              placeholder="Søk intervensjon"
               clearCallback={() => this.setState({ sctid: "" })}
             />
           </div>

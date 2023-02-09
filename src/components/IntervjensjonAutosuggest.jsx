@@ -75,7 +75,7 @@ export const IntervjensjonAutosuggest = class IntervjensjonAutosuggest extends R
         method: "GET",
         headers: {
           Accept: "application/json",
-          "Accept-Language": "no",
+          "Accept-Language": "no-x-61000202103",
         },
       })
         .then((response) => response.json())

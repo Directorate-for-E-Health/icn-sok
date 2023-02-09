@@ -74,7 +74,7 @@ export const MaalAutosuggest = class MaalAutosuggest extends React.Component {
         method: "GET",
         headers: {
           Accept: "application/json",
-          "Accept-Language": "no",
+          "Accept-Language": "no-x-61000202103",
         },
       })
         .then((response) => response.json())

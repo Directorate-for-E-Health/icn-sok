@@ -9,26 +9,38 @@ export const Main = class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sctid: "",
-      data: {},
+      sctidDiagnose: "",
+      sctidMaal: "",
+      sctidIntervensjon: "",
+
+      dignoseData: {},
+      maalData: {},
+      intervensjonsData: {},
     };
   }
 
-  suggestCallback = (suggestion) => {
+  getDiagnoseData = (suggestion) => {
     if (!suggestion) return;
-    console.log("got suggestion:", suggestion);
-    this.setState({ sctid: suggestion.concept.conceptId, data: suggestion });
+    this.setState({
+      sctidDiagnose: suggestion.concept.conceptId,
+      diagnoseData: suggestion,
+    });
   };
 
-  renderSuggestionOnThePage = (data) => {
-    if (data.term && this.state.sctid)
-      return (
-        <div>
-          Term: {data.term}
-          <br />
-          ConceptId: {this.state.sctid}
-        </div>
-      );
+  getMaalData = (suggestion) => {
+    if (!suggestion) return;
+    this.setState({
+      sctidMaal: suggestion.concept.conceptId,
+      maalData: suggestion,
+    });
+  };
+
+  getIntervensjonsData = (suggestion) => {
+    if (!suggestion) return;
+    this.setState({
+      sctidIntervensjon: suggestion.concept.conceptId,
+      intervensjonsData: suggestion,
+    });
   };
 
   render() {
@@ -39,42 +51,62 @@ export const Main = class Main extends React.Component {
             <h1>Funn eller diagnose</h1>
 
             <DiagnoseAutosuggest
-              suggestCallback={this.suggestCallback}
+              id="diagnose"
+              suggestCallback={this.getDiagnoseData}
               placeholder="Søk diagnose"
-              clearCallback={() => this.setState({ sctid: "" })}
+              clearCallback={() => this.setState({ sctidDiagnose: "" })}
             />
-          </div>
-          <div className="form group">
-            {this.renderSuggestionOnThePage(this.state.data)}
+            {this.state.diagnoseData && this.state.sctidDiagnose ? (
+              <div className="form group">
+                <p>
+                  Foretrukken term: {this.state.diagnoseData.concept.pt.term}
+                  <br />
+                  SNOMED-id: {this.state.sctidDiagnose}
+                </p>
+              </div>
+            ) : null}
           </div>
         </article>
+
         <article>
           <div className="form group">
             <h1>Mål</h1>
 
             <MaalAutosuggest
-              suggestCallback={this.suggestCallback}
+              suggestCallback={this.getMaalData}
               placeholder="Søk mål"
-              clearCallback={() => this.setState({ sctid: "" })}
+              clearCallback={() => this.setState({ sctidMaal: "" })}
             />
-          </div>
-          <div className="form group">
-            {this.renderSuggestionOnThePage(this.state.data)}
+            {this.state.maalData && this.state.sctidMaal ? (
+              <div className="form group">
+                <p>
+                  Foretrukken term: {this.state.maalData.concept.pt.term}
+                  <br />
+                  SNOMED-id: {this.state.sctidMaal}
+                </p>
+              </div>
+            ) : null}
           </div>
         </article>
 
         <article>
           <div className="form group">
             <h1>Intervensjon</h1>
-
             <IntervjensjonAutosuggest
-              suggestCallback={this.suggestCallback}
+              suggestCallback={this.getIntervensjonsData}
               placeholder="Søk intervensjon"
-              clearCallback={() => this.setState({ sctid: "" })}
+              clearCallback={() => this.setState({ sctidIntervensjon: "" })}
             />
-          </div>
-          <div className="form group">
-            {this.renderSuggestionOnThePage(this.state.data)}
+            {this.state.intervensjonsData && this.state.sctidIntervensjon ? (
+              <div className="form group">
+                <p>
+                  Foretrukken term:{" "}
+                  {this.state.intervensjonsData.concept.pt.term}
+                  <br />
+                  SNOMED-id: {this.state.sctidIntervensjon}
+                </p>
+              </div>
+            ) : null}
           </div>
         </article>
       </div>

@@ -4,6 +4,7 @@ import "../index.css";
 import { MaalAutosuggest } from "../components/MaalAutosuggest";
 import { DiagnoseAutosuggest } from "../components/DiagnoseAutosuggest";
 import { IntervjensjonAutosuggest } from "../components/IntervjensjonAutosuggest";
+import { Footer } from "../components/footer";
 
 export const Main = class Main extends React.Component {
   constructor(props) {
@@ -109,6 +110,7 @@ export const Main = class Main extends React.Component {
             ) : null}
           </div>
         </article>
+        <Footer />
       </div>
     );
   }

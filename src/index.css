@@ -6,14 +6,45 @@ ul li {
 }
 article {
   float: left;
+  display: block;
   margin: 25px;
   background-color: #e4f0f4;
   border-radius: 1px;
   border-left: solid 4px #0069e8;
   padding: 15px;
-  width: 90%;
+  width: 95%;
 }
+
 input {
   max-width: 600px;
   min-width: 300px;
+}
+.footer {
+  margin-top: 75px;
+  float: left;
+  display: block;
+  background-color: #281c2c;
+  color: white;
+
+  width: 100%;
+}
+.footer img {
+  padding: 25px;
+}
+.footer p {
+  padding: 25px;
+}
+.foooterLink {
+  text-decoration: none;
+  color: #efefef;
+}
+.foooterLink:hover {
+  text-decoration: underline;
+  color: #efefef;
+}
+.line {
+  border-top-color: white;
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-top: 25px;
 }

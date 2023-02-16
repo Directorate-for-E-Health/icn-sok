@@ -4,7 +4,8 @@ import "../index.css";
 import { MaalAutosuggest } from "../components/MaalAutosuggest";
 import { DiagnoseAutosuggest } from "../components/DiagnoseAutosuggest";
 import { IntervjensjonAutosuggest } from "../components/IntervjensjonAutosuggest";
-import { Footer } from "../components/footer";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 
 export const Main = class Main extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ export const Main = class Main extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <article>
           <div className="form group">
             <h1>Funn eller diagnose</h1>

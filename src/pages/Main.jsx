@@ -4,7 +4,7 @@ import "../index.css";
 import { MaalAutosuggest } from "../components/MaalAutosuggest";
 import { DiagnoseAutosuggest } from "../components/DiagnoseAutosuggest";
 import { IntervjensjonAutosuggest } from "../components/IntervjensjonAutosuggest";
-import { Footer } from "../components/Footer";
+import { Footer } from "../components/footer";
 import { Header } from "../components/Header";
 
 export const Main = class Main extends React.Component {

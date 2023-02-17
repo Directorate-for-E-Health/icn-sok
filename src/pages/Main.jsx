@@ -49,6 +49,9 @@ export const Main = class Main extends React.Component {
     return (
       <div className="App">
         <Header />
+
+        <h1>ICNP - enkel søkemotor</h1>
+
         <article>
           <div className="form group">
             <h1>Funn eller diagnose</h1>

@@ -65,9 +65,12 @@ export const Main = class Main extends React.Component {
             {this.state.diagnoseData && this.state.sctidDiagnose ? (
               <div className="form group">
                 <p>
-                  Foretrukken term: {this.state.diagnoseData.concept.pt.term}
+                  <strong>Du søkte etter:</strong>{" "}
+                  {this.state.diagnoseData.term} <br />
+                  <strong>Foretrukken term:</strong>{" "}
+                  {this.state.diagnoseData.concept.pt.term}
                   <br />
-                  SNOMED-id: {this.state.sctidDiagnose}
+                  <strong> SNOMED-id:</strong> {this.state.sctidDiagnose}
                 </p>
               </div>
             ) : null}

@@ -34,16 +34,14 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
 
     this.props.suggestCallback(suggestion);
 
-    return (
-      suggestion.concept.pt.term + " (" + suggestion.concept.conceptId + ")"
-    );
+    return suggestion.term + " (" + suggestion.concept.conceptId + ")";
     // return suggestion.term;
   };
 
   // Use your imagination to render suggestions.
   renderSuggestion = (suggestion) => (
     <>
-      {suggestion.concept.pt.term} ({suggestion.concept.conceptId})
+      {suggestion.term} ({suggestion.concept.conceptId})
     </>
   );
 

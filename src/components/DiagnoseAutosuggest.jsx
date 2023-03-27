@@ -72,7 +72,7 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
         method: "GET",
         headers: {
           Accept: "application/json",
-          "Accept-Language": "no-x-61000202103",
+          "Accept-Language": "no-x-857093371000245108,no-x-61000202103,no",
         },
       })
         .then((response) => response.json())

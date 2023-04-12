@@ -61,7 +61,7 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
       "/descriptions?" +
       "term=" +
       term +
-      "&conceptRefset=138441000202109&active=true&conceptActive=true&groupByConcept=true&offset=0&limit=10";
+      "&conceptRefset=138441000202109&active=true&language=no&conceptActive=true&groupByConcept=true&offset=0&limit=10";
 
     console.log("getTermsUrl with suggestion", getTermsUrl);
 

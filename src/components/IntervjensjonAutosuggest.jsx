@@ -64,7 +64,7 @@ export const IntervjensjonAutosuggest = class IntervjensjonAutosuggest extends R
       "term=" +
       term +
       "&conceptRefset=138451000202107&active=true&conceptActive=true&groupByConcept=true&offset=0&limit=10" +
-      "&language=no&language=nb&language=nn&language=en";
+      "&language=no";
 
     console.log("getTermsUrl with suggestion", getTermsUrl);
 

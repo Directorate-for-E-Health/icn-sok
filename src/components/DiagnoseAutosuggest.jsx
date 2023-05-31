@@ -4,6 +4,9 @@ import "./SNOMEDAutosuggestRender.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { branchForAutosuggest, terminlogyServer } from "../config.ts";
 import { Spinner } from "reactstrap";
+import { Button, Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Component {
   constructor() {
@@ -20,6 +23,7 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
       suggestions: [],
       sourceId: null,
     };
+    this.ref = React.createRef();
   }
 
   // When suggestion is clicked, Autosuggest needs to populate the input
@@ -61,7 +65,7 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
       "/descriptions?" +
       "term=" +
       term +
-      "&conceptRefset=138441000202109&active=true&language=no&conceptActive=true&groupByConcept=true&offset=0&limit=10";
+      "&conceptRefset=138441000202109&active=true&language=no&conceptActive=true&groupByConcept=true&offset=0&limit=100";
 
     console.log("getTermsUrl with suggestion", getTermsUrl);
 
@@ -109,7 +113,13 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
       suggestions: [],
     });
   };
-
+  handleClearInput = (e) => {
+    this.setState({
+      value: "",
+      suggestions: [],
+    });
+    this.ref.current.focus();
+  };
   onChange = (event, { newValue }) => {
     console.log("onchange!");
     this.setState({
@@ -126,7 +136,38 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
       onChange: this.onChange,
       placeholder: this.props.placeholder,
     };
-
+    const renderInputComponent = (customInputProps) => (
+      <Form className=" position-relative">
+        {value &&
+          !this.state.showSpinner && ( // vis kun dersom value ikke er en tom verdi og hvis den ikke laster
+            <Button
+              id="clear-input-field"
+              onClick={this.handleClearInput}
+              variant="tertiary"
+              className="position-absolute end-0 mt-1 pt-2"
+            >
+              <FontAwesomeIcon icon={faClose} size="lg" />
+            </Button>
+          )}
+        {this.state.showSpinner && ( // vi flytter spinner hit så den kan jobbe sammen med clear button
+          <Spinner
+            id="search-spinner"
+            color="success"
+            className="position-absolute end-0 mt-3 me-3"
+            size="sm"
+          />
+        )}
+        <Form.Control
+          {...customInputProps}
+          ref={this.ref}
+          onKeyDown={(e) => {
+            // forhindrer bruker å trykke enter
+            e.key === "Enter" && e.preventDefault();
+          }}
+          autoFocus
+        />
+      </Form>
+    );
     // Finally, render it!
     return (
       // add custom border if invalid
@@ -138,8 +179,8 @@ export const DiagnoseAutosuggest = class DiagnoseAutosuggest extends React.Compo
           getSuggestionValue={this.getSuggestionValue}
           renderSuggestion={this.renderSuggestion}
           inputProps={inputProps}
+          renderInputComponent={renderInputComponent}
         />
-        {this.state.showSpinner ? <Spinner color="success" /> : null}
       </div>
     );
   }

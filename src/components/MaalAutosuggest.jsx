@@ -63,7 +63,7 @@ export const MaalAutosuggest = class MaalAutosuggest extends React.Component {
       "/descriptions?" +
       "term=" +
       term +
-      "&conceptRefset=138461000202105&language=no&active=true&conceptActive=true&groupByConcept=true&offset=0&limit=10";
+      "&conceptRefset=138461000202105&language=no&active=true&conceptActive=true&groupByConcept=true&offset=0&limit=100";
 
     console.log("getTermsUrl with suggestion", getTermsUrl);
 

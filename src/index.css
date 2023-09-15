@@ -84,6 +84,7 @@ input {
 }
 .headerLink {
   float: right;
+  margin-right: 4em;
 }
 .foooterLink:hover,
 .headerLink:hover {

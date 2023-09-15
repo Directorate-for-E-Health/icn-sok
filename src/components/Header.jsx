@@ -6,7 +6,7 @@ export const Header = class Header extends React.Component {
   render() {
     return (
       <header>
-        <a href="/">
+        <a href="https://icn-sok-nonn.netlify.app/">
           <img
             className="alignLeft"
             src="assets/ehelse_logo_white.png"

@@ -1,15 +1,15 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css";
-import { MaalAutosuggest } from "../components/MaalAutosuggest";
-import { DiagnoseAutosuggest } from "../components/DiagnoseAutosuggest";
-import { IntervjensjonAutosuggest } from "../components/IntervjensjonAutosuggest";
-import { Footer } from "../components/footer";
-import { Header } from "../components/Header";
+import React from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "../index.css"
+import { MaalAutosuggest } from "../components/MaalAutosuggest"
+import { DiagnoseAutosuggest } from "../components/DiagnoseAutosuggest"
+import { IntervjensjonAutosuggest } from "../components/IntervjensjonAutosuggest"
+import { Footer } from "../components/footer"
+import { Header } from "../components/Header"
 
 export const Main = class Main extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       sctidDiagnose: "",
       sctidMaal: "",
@@ -18,32 +18,32 @@ export const Main = class Main extends React.Component {
       dignoseData: {},
       maalData: {},
       intervensjonsData: {},
-    };
+    }
   }
 
   getDiagnoseData = (suggestion) => {
-    if (!suggestion) return;
+    if (!suggestion) return
     this.setState({
       sctidDiagnose: suggestion.concept.conceptId,
       diagnoseData: suggestion,
-    });
-  };
+    })
+  }
 
   getMaalData = (suggestion) => {
-    if (!suggestion) return;
+    if (!suggestion) return
     this.setState({
       sctidMaal: suggestion.concept.conceptId,
       maalData: suggestion,
-    });
-  };
+    })
+  }
 
   getIntervensjonsData = (suggestion) => {
-    if (!suggestion) return;
+    if (!suggestion) return
     this.setState({
       sctidIntervensjon: suggestion.concept.conceptId,
       intervensjonsData: suggestion,
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -120,8 +120,8 @@ export const Main = class Main extends React.Component {
         </article>
         <Footer />
       </div>
-    );
+    )
   }
-};
+}
 
-export default Main;
+export default Main

@@ -1,6 +1,6 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css";
+import React from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "../index.css"
 
 export const Header = class Header extends React.Component {
   render() {
@@ -14,9 +14,12 @@ export const Header = class Header extends React.Component {
             height="132px"
           ></img>
         </a>
+        <a href="/" className="headerLink">
+          Nynorsk
+        </a>
       </header>
-    );
+    )
   }
-};
+}
 
-export default Header;
+export default Header

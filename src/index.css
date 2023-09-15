@@ -77,13 +77,18 @@ input {
 .footer p {
   padding: 25px;
 }
-.foooterLink {
-  text-decoration: none;
-  color: #efefef;
+.foooterLink,
+.headerLink {
+  text-decoration: none !important;
+  color: #efefef !important;
 }
-.foooterLink:hover {
-  text-decoration: underline;
-  color: #efefef;
+.headerLink {
+  float: right;
+}
+.foooterLink:hover,
+.headerLink:hover {
+  text-decoration: underline !important;
+  color: #efefef !important;
 }
 .line {
   border-top-color: white;

@@ -6,7 +6,7 @@ export const Header = class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: "nb-No",
+      value: "nn-No",
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -35,7 +35,9 @@ export const Header = class Header extends React.Component {
           onChange={this.handleChange}
           className="headerLink"
         >
-          <option value="nn-No">Bokmål</option>
+          <option value="nn-No" selected>
+            Bokmål
+          </option>
           <option value="nb-No">Nynorsk</option>
         </select>
       </header>

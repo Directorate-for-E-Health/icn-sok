@@ -3,6 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "../index.css"
 
 export const Header = class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: "nb-No",
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+    if (this.state.value === "nn-No") {
+      window.location.href = "https://icn-sok-nonn.netlify.app/"
+    }
+  }
+
   render() {
     return (
       <header>
@@ -14,9 +28,16 @@ export const Header = class Header extends React.Component {
             height="132px"
           ></img>
         </a>
-        <a href="https://icn-sok-nonn.netlify.app/" className="headerLink">
-          Nynorsk
-        </a>
+
+        <select
+          id="lang"
+          value={this.state.value}
+          onChange={this.handleChange}
+          className="headerLink"
+        >
+          <option value="nn-No">Bokmål</option>
+          <option value="nb-No">Nynorsk</option>
+        </select>
       </header>
     )
   }

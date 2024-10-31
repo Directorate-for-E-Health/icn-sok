@@ -1,6 +1,6 @@
 //SNOMED CT CONFIGURATIONS
 export const terminlogyServer =
-  "https://dailybuild.terminologi.ehelse.no/snowstorm/snomed-ct/"
+  "https://dailybuild.terminologi.helsedirektoratet.no/snowstorm/snomed-ct/"
 export const branchForAutosuggest = "MAIN/SNOMEDCT-NO/REFSETS"
 
 export const headersNoNb = {

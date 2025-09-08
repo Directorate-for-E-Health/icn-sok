@@ -51,7 +51,22 @@ export const Main = class Main extends React.Component {
         <Header />
 
         <h1>ICNP - enkel søkemotor</h1>
-
+        <article>
+          <p>
+            {" "}
+            Denne siden er ikke lenger aktiv og er erstattet av{" "}
+            <a href="https://finnkode.helsedirektoratet.no/snomed/search">
+              FinnKode - Søk i SNOMED CT
+            </a>
+            .
+          </p>
+          <p>
+            I FinnKode - Søk i SNOMED CT finner du samme funksjonalitet som har
+            vært i Forenklet søkemotor for sykepleie.
+          </p>
+          <p>Ved spørsmål, kontakt med Beate.Kristiansen@helsedir.no</p>{" "}
+        </article>
+        {/* 
         <article>
           <div className="form group">
             <h1>Funn eller diagnose</h1>
@@ -118,6 +133,7 @@ export const Main = class Main extends React.Component {
             ) : null}
           </div>
         </article>
+        */}
         <Footer />
       </div>
     )

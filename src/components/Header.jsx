@@ -28,7 +28,7 @@ export const Header = class Header extends React.Component {
             height="132px"
           ></img>
         </a>
-
+        {/*
         <select
           id="lang"
           value={this.state.value}
@@ -40,6 +40,7 @@ export const Header = class Header extends React.Component {
           </option>
           <option value="nb-No">Nynorsk</option>
         </select>
+*/}
       </header>
     )
   }
